@@ -41,17 +41,22 @@ Data Scientist at **AWS Generative AI Innovation Center** · Dubai, UAE
 Every session answers one question: *"What was missing from the last one?"*
 That chain is what makes this a complete system — not a collection of tutorials.
 
+> **Two tracks, one goal.**
+> The **public sessions** in this repo (S00 onwards) are a free, open foundation track — released every weekend. The **21-module cohort program** below is a live, instructor-led course with direct access to Mohamed, assignments, and peer learning. The sessions here map to the foundations of that program. [Message on LinkedIn](https://linkedin.com/in/nursnaaz) to join the next cohort.
+
 ### Available Now — 3 Sessions
 
-| Session | Topic | What You Build | Status |
+| Session | Topic | What You Build | Released |
 |---|---|---|---|
-| [S00](./00_How_Search_Engine_Works/) | How Search Engines Work | TF-IDF search engine from scratch | ✅ |
-| [S01](./01_Text_to_Numbers/) | Text to Numbers | Movie recommender with 5 embedding methods | ✅ |
-| [S02](./02_Transformer_Architecture/) | Transformer Architecture | Encoder-Decoder Transformer from scratch — train English → Italian translation | ✅ |
+| [S00](./00_How_Search_Engine_Works/) | How Search Engines Work | TF-IDF search engine from scratch | 2026-04-06 |
+| [S01](./01_Text_to_Numbers/) | Text to Numbers | Movie recommender with 5 embedding methods | 2026-04-13 |
+| [S02](./02_Transformer_Architecture/) | Transformer Architecture | Encoder-Decoder Transformer from scratch — train English → Italian translation | 2026-04-19 |
 
-### Full Curriculum — 21 Modules
+New sessions drop every **Saturday / Sunday**. Watch the repo to get notified.
 
-The complete zero-to-production GenAI engineer track. Modules are released session by session.
+### Full Cohort Curriculum — 21 Modules
+
+The complete zero-to-production GenAI engineer track. Delivered as a live cohort program.
 
 | Module | Topic | Track | Status |
 |---|---|---|---|
@@ -79,10 +84,39 @@ The complete zero-to-production GenAI engineer track. Modules are released sessi
 
 ---
 
+## 📅 Session Changelog
+
+| Date | Session | What Shipped |
+|---|---|---|
+| 2026-04-19 | S02 | Transformer Architecture — PyTorch notebook, slides, original paper, self-attention video, architecture workbook, interactive tutorials |
+| 2026-04-13 | S01 | Text to Numbers — 5 embedding methods (BoW → FastText), movie recommender (FastAPI + React), cosine similarity notebook |
+| 2026-04-06 | S00 | How Search Engines Work — TF-IDF search engine from scratch, 3 PDF slide decks, 2 notebooks |
+| 2026-04-03 | Prereq | Python for GenAI, Math Intuition, Neural Networks notebooks + cheat sheet |
+
+---
+
+## 🎮 Interactive Tutorials
+
+Hands-on tutorials you can run in your browser — no setup, no install. Built specifically for this course.
+
+| Tutorial | Session | Level | Time |
+|---|---|---|---|
+| [How Search Engines Work](https://nursnaaz.github.io/tutorial/how-search-engines-work) | S00 | Beginner | 45 min |
+| [Cosine Similarity & Movie Recommender](https://nursnaaz.github.io/tutorial/cosine-similarity-movie-recommender) | S01 | Beginner | 45 min |
+| [Self-Attention Mechanism](https://nursnaaz.github.io/tutorial/self-attention) | S02 | Beginner | 30 min |
+| [Positional Encoding](https://nursnaaz.github.io/tutorial/positional-encoding) | S02 | Beginner | 35 min |
+| [Multi-Head Attention](https://nursnaaz.github.io/tutorial/multi-head-attention) | S02 | Intermediate | 60 min |
+
+All tutorials are interactive — run the calculations yourself, step by step. Use them alongside the session notebooks to check your understanding.
+
+👉 **Full tutorial library:** [nursnaaz.github.io](https://nursnaaz.github.io)
+
+---
+
 ## 🚀 Start Here — Pre-work (Beginners)
 
 **New to Python, ML, or AI?** Complete the pre-work first.
-It takes ~3 hours and gives you everything you need to follow M00 onwards.
+It takes ~3 hours and gives you everything you need to follow S00 onwards.
 
 📁 **[→ Go to Pre-work](./prereq/)**
 
@@ -92,7 +126,7 @@ It takes ~3 hours and gives you everything you need to follow M00 onwards.
 | [02 — Math Intuition](./prereq/notebooks/02_math_intuition.ipynb) | Vectors, dot product, softmax | 60 min |
 | [03 — Neural Networks](./prereq/notebooks/03_neural_networks_intuition.ipynb) | How models learn — in plain English | 60 min |
 
-After the notebooks, read the **[Cheat Sheet](./prereq/cheatsheet.md)** — keep it open during M00.
+After the notebooks, read the **[Cheat Sheet](./prereq/cheatsheet.md)** — keep it open during S00.
 
 ---
 
