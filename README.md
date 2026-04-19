@@ -41,12 +41,13 @@ Data Scientist at **AWS Generative AI Innovation Center** · Dubai, UAE
 Every session answers one question: *"What was missing from the last one?"*
 That chain is what makes this a complete system — not a collection of tutorials.
 
-### Available Now — 2 Sessions
+### Available Now — 3 Sessions
 
 | Session | Topic | What You Build | Status |
 |---|---|---|---|
-| [S00](./00_search_engine/) | How Search Engines Work | TF-IDF search engine from scratch | ✅ |
-| [S01](./01_text_to_numbers/) | Text to Numbers | Movie recommender with 5 embedding methods | ✅ |
+| [S00](./00_How_Search_Engine_Works/) | How Search Engines Work | TF-IDF search engine from scratch | ✅ |
+| [S01](./01_Text_to_Numbers/) | Text to Numbers | Movie recommender with 5 embedding methods | ✅ |
+| [S02](./02_Transformer_Architecture/) | Transformer Architecture | Encoder-Decoder Transformer from scratch — train English → Italian translation | ✅ |
 
 ### Full Curriculum — 21 Modules
 
