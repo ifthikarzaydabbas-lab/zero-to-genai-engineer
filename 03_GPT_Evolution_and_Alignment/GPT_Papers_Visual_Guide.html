@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GPT Evolution & Alignment — Research Paper Visual Guide</title>
+<style>
+  :root {
+    --bg:       #0f172a;
+    --surface:  #1e293b;
+    --border:   #334155;
+    --text:     #e2e8f0;
+    --muted:    #94a3b8;
+    --gpt:      #38bdf8;
+    --gpt-dim:  #0c4a6e;
+    --enc:      #34d399;
+    --enc-dim:  #064e3b;
+    --align:    #fb923c;
+    --align-dim:#7c2d12;
+    --found:    #a78bfa;
+    --found-dim:#3b0764;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ── HEADER ─────────────────────────────────────── */
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .header h1 {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #f1f5f9;
+  }
+  .header h1 span { color: var(--gpt); }
+  .header p {
+    color: var(--muted);
+    margin-top: .5rem;
+    font-size: .95rem;
+  }
+
+  /* ── LEGEND ─────────────────────────────────────── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    margin-bottom: 2.5rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .35rem .9rem;
+    font-size: .82rem;
+    font-weight: 600;
+  }
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── TIMELINE WRAPPER ───────────────────────────── */
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* vertical spine */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 72px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--found), var(--gpt), var(--enc), var(--align));
+    opacity: .4;
+  }
+
+  /* ── YEAR ROW ───────────────────────────────────── */
+  .year-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    position: relative;
+  }
+
+  .year-label {
+    width: 64px;
+    flex-shrink: 0;
+    text-align: right;
+    font-size: .9rem;
+    font-weight: 800;
+    color: var(--muted);
+    padding-top: .85rem;
+    position: relative;
+  }
+  /* dot on spine */
+  .year-label::after {
+    content: '';
+    position: absolute;
+    right: -13px;
+    top: 1.15rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    border: 2px solid var(--muted);
+  }
+
+  .cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .85rem;
+    flex: 1;
+  }
+
+  /* ── CARD ───────────────────────────────────────── */
+  .card {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1rem 1.1rem;
+    width: 220px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: default;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,.5);
+  }
+
+  /* coloured left stripe */
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    border-radius: 12px 0 0 12px;
+  }
+  .card.gpt    { border-color: var(--gpt-dim);   }
+  .card.gpt::before    { background: var(--gpt);   }
+  .card.enc    { border-color: var(--enc-dim);   }
+  .card.enc::before    { background: var(--enc);   }
+  .card.align  { border-color: var(--align-dim); }
+  .card.align::before  { background: var(--align); }
+  .card.found  { border-color: var(--found-dim); }
+  .card.found::before  { background: var(--found); }
+
+  .card:hover.gpt   { border-color: var(--gpt);   box-shadow: 0 12px 32px rgba(56,189,248,.15); }
+  .card:hover.enc   { border-color: var(--enc);   box-shadow: 0 12px 32px rgba(52,211,153,.15); }
+  .card:hover.align { border-color: var(--align); box-shadow: 0 12px 32px rgba(251,146,60,.15); }
+  .card:hover.found { border-color: var(--found); box-shadow: 0 12px 32px rgba(167,139,250,.15); }
+
+  .card-badge {
+    display: inline-block;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: .15rem .45rem;
+    margin-bottom: .55rem;
+  }
+  .gpt   .card-badge { background: var(--gpt-dim);   color: var(--gpt);   }
+  .enc   .card-badge { background: var(--enc-dim);   color: var(--enc);   }
+  .align .card-badge { background: var(--align-dim); color: var(--align); }
+  .found .card-badge { background: var(--found-dim); color: var(--found); }
+
+  .card-title {
+    font-size: .88rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #f1f5f9;
+    margin-bottom: .4rem;
+  }
+
+  .card-authors {
+    font-size: .72rem;
+    color: var(--muted);
+    margin-bottom: .55rem;
+  }
+
+  .card-summary {
+    font-size: .78rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    margin-bottom: .65rem;
+  }
+
+  /* pill tags */
+  .tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .tag {
+    font-size: .65rem;
+    font-weight: 600;
+    padding: .18rem .5rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  /* hover-reveal detail panel */
+  .card-detail {
+    display: none;
+    margin-top: .65rem;
+    padding-top: .65rem;
+    border-top: 1px solid var(--border);
+    font-size: .75rem;
+    color: #94a3b8;
+    line-height: 1.55;
+  }
+  .card:hover .card-detail { display: block; }
+
+  .card-link {
+    display: inline-block;
+    margin-top: .5rem;
+    font-size: .7rem;
+    font-weight: 600;
+    color: var(--gpt);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--gpt-dim);
+  }
+  .enc   .card-link { color: var(--enc);   border-color: var(--enc-dim);   }
+  .align .card-link { color: var(--align); border-color: var(--align-dim); }
+  .found .card-link { color: var(--found); border-color: var(--found-dim); }
+  .card-link:hover { opacity: .8; }
+
+  /* ── CONNECTOR ARROWS ───────────────────────────── */
+  .connector {
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    margin: -.5rem 0 1.5rem 85px;
+    font-size: .7rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .connector::before {
+    content: '↓';
+    font-size: .85rem;
+    font-style: normal;
+  }
+
+  /* ── INSIGHTS BAR ───────────────────────────────── */
+  .insights {
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .insight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .insight-card .big {
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: .25rem;
+  }
+  .insight-card p {
+    font-size: .75rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────── */
+  .footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: .75rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 600px) {
+    .timeline::before { left: 40px; }
+    .year-label { width: 36px; font-size: .78rem; }
+    .year-label::after { right: -11px; }
+    .card { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────── -->
+<div class="header">
+  <h1>GPT Evolution &amp; Alignment — <span>Research Paper Visual Guide</span></h1>
+  <p>11 papers · 2017–2023 · From next-token prediction → ChatGPT → Claude · Hover a card for details</p>
+</div>
+
+<!-- ── LEGEND ──────────────────────────────────────── -->
+<div class="legend">
+  <div class="legend-item"><div class="dot" style="background:var(--found)"></div> Foundation</div>
+  <div class="legend-item"><div class="dot" style="background:var(--gpt)"></div> GPT Decoder Series</div>
+  <div class="legend-item"><div class="dot" style="background:var(--enc)"></div> Encoder / Encoder-Decoder Models</div>
+  <div class="legend-item"><div class="dot" style="background:var(--align)"></div> Alignment &amp; Safety</div>
+</div>
+
+<!-- ── TIMELINE ─────────────────────────────────────── -->
+<div class="timeline">
+
+  <!-- 2017 -->
+  <div class="year-row">
+    <div class="year-label">2017</div>
+    <div class="cards-row">
+      <div class="card found">
+        <div class="card-badge">Foundation</div>
+        <div class="card-title">Attention Is All You Need</div>
+        <div class="card-authors">Vaswani et al. · Google Brain</div>
+        <div class="card-summary">Introduced the Transformer — the architecture that powers every paper on this page.</div>
+        <div class="tags">
+          <span class="tag">Self-Attention</span>
+          <span class="tag">Encoder-Decoder</span>
+          <span class="tag">Positional Encoding</span>
+        </div>
+        <div class="card-detail">
+          Replaced RNNs with pure attention. The multi-head attention + feed-forward block is still unchanged in GPT-4, Claude, and Gemini today.
+          <br/><a class="card-link" href="https://arxiv.org/abs/1706.03762" target="_blank">arxiv.org/abs/1706.03762 ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector">GPT-1 and BERT both take the Transformer — and split into two schools: decoder-only vs encoder-only</div>
+
+  <!-- 2018 -->
+  <div class="year-row">
+    <div class="year-label">2018</div>
+    <div class="cards-row">
+
+      <div class="card gpt">
+        <div class="card-badge">GPT Series · 01</div>
+        <div class="card-title">GPT-1 — Language Understanding by Generative Pre-Training</div>
+        <div class="card-authors">Radford et al. · OpenAI</div>
+        <div class="card-summary">First proof that pre-training a Transformer decoder on unlabelled text, then fine-tuning, beats task-specific training.</div>
+        <div class="tags">
+          <span class="tag">117M params</span>
+          <span class="tag">BooksCorpus</span>
+          <span class="tag">Pre-train + Fine-tune</span>
+        </div>
+        <div class="card-detail">
+          12-layer decoder, trained on 7,000 books. Improved SOTA on 9 of 12 NLP benchmarks. Started the foundation-model era.
+          <br/><a class="card-link" href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" target="_blank">OpenAI PDF ↗</a>
+        </div>
+      </div>
+
+      <div class="card enc">
+        <div class="card-badge">Encoder · 01</div>
+        <div class="card-title">BERT — Bidirectional Transformers for Language Understanding</div>
+        <div class="card-authors">Devlin et al. · Google AI</div>
+        <div class="card-summary">Read text in both directions simultaneously using Masked Language Modelling — better for understanding, can't generate.</div>
+        <div class="tags">
+          <span class="tag">Bidirectional</span>
+          <span class="tag">MLM + NSP</span>
+          <span class="tag">Encoder-only</span>
+        </div>
+        <div class="card-detail">
+          Set new SOTA on 11 NLP benchmarks. GLUE: 80.5%, SQuAD F1: 93.2%. Encoder-only means great at classification — but cannot write text. GPT eventually won the LLM race because generation &gt; classification.
+          <br/><a class="card-link" href="https://arxiv.org/abs/1810.04805" target="_blank">arxiv.org/abs/1810.04805 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connector">GPT-2 asks: what if we scale up and remove fine-tuning entirely?</div>
+
+  <!-- 2019 -->
+  <div class="year-row">
+    <div class="year-label">2019</div>
+    <div class="cards-row">
+
+      <div class="card gpt">
+        <div class="card-badge">GPT Series · 02</div>
+        <div class="card-title">GPT-2 — Unsupervised Multitask Learners</div>
+        <div class="card-authors">Radford et al. · OpenAI</div>
+        <div class="card-summary">Scale to 1.5B params and train on 40GB of web text — the model learns tasks zero-shot without any fine-tuning.</div>
+        <div class="tags">
+          <span class="tag">1.5B params</span>
+          <span class="tag">WebText 40GB</span>
+          <span class="tag">Zero-shot</span>
+        </div>
+        <div class="card-detail">
+          SOTA zero-shot on 7 of 8 LM benchmarks. OpenAI initially withheld the full model — the first AI safety controversy. Showed the internet is a multitask dataset.
+          <br/><a class="card-link" href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf" target="_blank">OpenAI PDF ↗</a>
+        </div>
+      </div>
+
+      <div class="card enc">
+        <div class="card-badge">Encoder-Decoder · 01</div>
+        <div class="card-title">BART — Denoising Seq2Seq Pre-training</div>
+        <div class="card-authors">Lewis et al. · Facebook AI</div>
+        <div class="card-summary">Combines BERT's bidirectional encoder with GPT's autoregressive decoder — best of both worlds for summarisation.</div>
+        <div class="tags">
+          <span class="tag">Encoder + Decoder</span>
+          <span class="tag">Denoising</span>
+          <span class="tag">Summarisation</span>
+        </div>
+        <div class="card-detail">
+          Pre-trained by corrupting text (masking, shuffling, deletion) and learning to reconstruct it. ROUGE-1 44.16 on CNN/DailyMail — new SOTA. Still widely used for summarisation and translation.
+          <br/><a class="card-link" href="https://arxiv.org/abs/1910.13461" target="_blank">arxiv.org/abs/1910.13461 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connector">GPT-3: massive scale makes few-shot examples in the prompt sufficient — no fine-tuning, no labels</div>
+
+  <!-- 2020 -->
+  <div class="year-row">
+    <div class="year-label">2020</div>
+    <div class="cards-row">
+
+      <div class="card gpt">
+        <div class="card-badge">GPT Series · 03</div>
+        <div class="card-title">GPT-3 — Language Models are Few-Shot Learners</div>
+        <div class="card-authors">Brown et al. (31 authors) · OpenAI</div>
+        <div class="card-summary">At 175B params, a few examples in the prompt (no weight updates) matches fine-tuned models — in-context learning emerges.</div>
+        <div class="tags">
+          <span class="tag">175B params</span>
+          <span class="tag">300B tokens</span>
+          <span class="tag">Few-shot ICL</span>
+          <span class="tag">~$4.6M to train</span>
+        </div>
+        <div class="card-detail">
+          No gradient updates needed for new tasks. Spawned prompt engineering as a field. The model behind the OpenAI API. Limitation: follows statistical patterns, not instructions — led directly to InstructGPT.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2005.14165" target="_blank">arxiv.org/abs/2005.14165 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connector">The alignment era begins — how do you make a text predictor into a helpful, harmless assistant?</div>
+
+  <!-- 2022 -->
+  <div class="year-row">
+    <div class="year-label">2022</div>
+    <div class="cards-row">
+
+      <div class="card align">
+        <div class="card-badge">Alignment · 01</div>
+        <div class="card-title">InstructGPT — Training LMs to Follow Instructions with Human Feedback</div>
+        <div class="card-authors">Ouyang et al. · OpenAI</div>
+        <div class="card-summary">RLHF in 3 steps: SFT → reward model → PPO. A 1.3B aligned model preferred over raw 175B GPT-3 by humans 85% of the time.</div>
+        <div class="tags">
+          <span class="tag">RLHF</span>
+          <span class="tag">PPO</span>
+          <span class="tag">→ ChatGPT</span>
+        </div>
+        <div class="card-detail">
+          Alignment ≠ capability. Smaller + aligned beats bigger + unaligned. This 3-step pipeline is exactly how ChatGPT was built. The "alignment tax" (slight benchmark regression) is a known trade-off.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2203.02155" target="_blank">arxiv.org/abs/2203.02155 ↗</a>
+        </div>
+      </div>
+
+      <div class="card align">
+        <div class="card-badge">Alignment · 02</div>
+        <div class="card-title">HH-RLHF — Helpful &amp; Harmless Assistant with RLHF</div>
+        <div class="card-authors">Bai et al. · Anthropic</div>
+        <div class="card-summary">Anthropic's RLHF paper — introduces the HHH framework and reveals the fundamental tension: more helpful often means more harmful.</div>
+        <div class="tags">
+          <span class="tag">HHH Framework</span>
+          <span class="tag">~170K pairs</span>
+          <span class="tag">→ Claude</span>
+        </div>
+        <div class="card-detail">
+          Two separate reward models: one for helpfulness, one for harmlessness. Helpfulness ↑ often means harmlessness ↓ — you must manage the trade-off explicitly. The HH dataset is still widely used for research.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2204.05862" target="_blank">arxiv.org/abs/2204.05862 ↗</a>
+        </div>
+      </div>
+
+      <div class="card align">
+        <div class="card-badge">Alignment · 03</div>
+        <div class="card-title">Constitutional AI — Harmlessness from AI Feedback</div>
+        <div class="card-authors">Bai et al. · Anthropic</div>
+        <div class="card-summary">Replace expensive human harmlessness labels with an AI critiquing its own outputs against a written constitution of principles.</div>
+        <div class="tags">
+          <span class="tag">SL-CAI</span>
+          <span class="tag">RLAIF</span>
+          <span class="tag">AI Feedback</span>
+        </div>
+        <div class="card-detail">
+          Two-stage: (1) Generate → Critique → Revise loop (SL-CAI), (2) AI preference labels → reward model → PPO. The constitution is published — transparent values. Basis for all Claude models.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2212.08073" target="_blank">arxiv.org/abs/2212.08073 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connector">2023: the field simplifies — can we remove the reward model entirely? Can the model improve itself?</div>
+
+  <!-- 2023 -->
+  <div class="year-row">
+    <div class="year-label">2023</div>
+    <div class="cards-row">
+
+      <div class="card align">
+        <div class="card-badge">Alignment · 04</div>
+        <div class="card-title">RLAIF — Scaling RLHF with AI Feedback</div>
+        <div class="card-authors">Lee et al. · Google</div>
+        <div class="card-summary">Replace human raters with an LLM — RLAIF achieves comparable alignment to RLHF at a fraction of the cost and time.</div>
+        <div class="tags">
+          <span class="tag">AI Rater</span>
+          <span class="tag">Scalable</span>
+          <span class="tag">≈ Human Quality</span>
+        </div>
+        <div class="card-detail">
+          Win rates vs SFT baseline: RLAIF and RLHF approximately equal (~71–73%). Independently validates Anthropic's Constitutional AI approach. As LLMs improve, RLAIF quality improves automatically.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2309.00267" target="_blank">arxiv.org/abs/2309.00267 ↗</a>
+        </div>
+      </div>
+
+      <div class="card align">
+        <div class="card-badge">Alignment · 05</div>
+        <div class="card-title">DPO — Direct Preference Optimization</div>
+        <div class="card-authors">Rafailov et al. · Stanford</div>
+        <div class="card-summary">The language model IS the reward model — skip PPO entirely and optimise directly on preference pairs with a simple binary cross-entropy loss.</div>
+        <div class="tags">
+          <span class="tag">No Reward Model</span>
+          <span class="tag">No PPO</span>
+          <span class="tag">Used in LLaMA / Mistral</span>
+        </div>
+        <div class="card-detail">
+          Derives a closed-form solution to the RLHF objective: reward(x,y) ∝ log π(y|x)/π_ref(y|x). Matches or beats PPO on summarisation, dialogue, sentiment. Now the default for open-source fine-tuning.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2305.18290" target="_blank">arxiv.org/abs/2305.18290 ↗</a>
+        </div>
+      </div>
+
+      <div class="card align">
+        <div class="card-badge">Alignment · 06</div>
+        <div class="card-title">SELF-REFINE — Iterative Refinement with Self-Feedback</div>
+        <div class="card-authors">Madaan et al. · CMU / AI2</div>
+        <div class="card-summary">No training needed — the same LLM generates, critiques its own output, and revises it in a loop, like a human reviewing a draft.</div>
+        <div class="tags">
+          <span class="tag">No Training</span>
+          <span class="tag">Generate → Critique → Refine</span>
+          <span class="tag">~20% improvement</span>
+        </div>
+        <div class="card-detail">
+          Tested on 7 tasks (code, math, dialogue, summarisation, etc.). Average ~20% relative improvement over initial generation using GPT-3.5. Foundation for agentic AI critic loops in LangGraph and CrewAI.
+          <br/><a class="card-link" href="https://arxiv.org/abs/2303.17651" target="_blank">arxiv.org/abs/2303.17651 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /timeline -->
+
+<!-- ── INSIGHT STATS BAR ──────────────────────────── -->
+<div class="insights">
+  <div class="insight-card">
+    <span class="big" style="color:var(--gpt)">117M → 175B</span>
+    <p>Parameter growth from GPT-1 to GPT-3 in just 2 years</p>
+  </div>
+  <div class="insight-card">
+    <span class="big" style="color:var(--enc)">2 Schools</span>
+    <p>Decoder-only (GPT family) vs Encoder-only (BERT) — decoders won the LLM era</p>
+  </div>
+  <div class="insight-card">
+    <span class="big" style="color:var(--align)">3 Steps</span>
+    <p>RLHF pipeline: SFT → Reward Model → PPO. DPO removes the last two.</p>
+  </div>
+  <div class="insight-card">
+    <span class="big" style="color:var(--found)">1 Architecture</span>
+    <p>Every model here traces back to the 2017 Transformer — only scale and training changed</p>
+  </div>
+  <div class="insight-card">
+    <span class="big" style="color:var(--align)">85%</span>
+    <p>Humans preferred InstructGPT (1.3B) over raw GPT-3 (175B) — alignment beats raw scale</p>
+  </div>
+  <div class="insight-card">
+    <span class="big" style="color:var(--gpt)">$0 → $4.6M</span>
+    <p>Training cost from GPT-1 (BooksCorpus) to GPT-3 (300B tokens)</p>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<div class="footer">
+  <p>Zero to GenAI Engineer · S03 — GPT Evolution &amp; Alignment &nbsp;|&nbsp; Hover any card for details and paper links &nbsp;|&nbsp;
+  <a href="https://github.com/nursnaaz/zero-to-genai-engineer" target="_blank" style="color:var(--gpt);text-decoration:none;">github.com/nursnaaz/zero-to-genai-engineer ↗</a></p>
+</div>
+
+</body>
+</html>
