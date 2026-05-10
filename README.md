@@ -40,48 +40,50 @@ That chain is what makes this a complete system — not a collection of tutorial
 > **Two tracks, one goal.**
 > The **public sessions** in this repo (S00 onwards) are a free, open foundation track — released every weekend. The **21-module program** below is the full curriculum this repo is building towards.
 
-### Available Now — 6 Sessions · M00 Complete ✅ · M01 In Progress
+### Available Now — 6 Sessions · M00 Complete ✅ · M01 Complete ✅ · M02 In Progress 🔄
 
-> **M00 — Foundation** is complete across S00–S03. **M01** (Modern LLM Fundamentals) is underway with S04–S05.
+> **M00 — Foundation** is complete (S00–S03). **M01 — Modern LLM Fundamentals** is complete (S04). **M02 — Local LLMs & API Providers** is complete (S05).
 
 | Session | Module | Topic | What You Build | Released |
 |---|---|---|---|---|
 | [S00](./00_How_Search_Engine_Works/) | M00 Part 1a | How Search Engines Work | TF-IDF search engine from scratch | 2026-04-06 |
 | [S01](./01_Text_to_Numbers/) | M00 Part 1b | Text to Numbers | Movie recommender with 5 embedding methods | 2026-04-13 |
-| [S02](./02_Transformer_Architecture/) | M00 Part 2 | Transformer Architecture | Encoder-Decoder Transformer from scratch — train English → Italian translation | 2026-04-19 |
-| [S03](./03_GPT_Evolution_and_Alignment/) | M00 Part 3 ✅ | GPT Evolution & Alignment | Build GPT from scratch (PyTorch + TF) · 11 paper summaries · [▶ Paper Slides](https://nursnaaz.github.io/zero-to-genai-engineer/03_GPT_Evolution_and_Alignment/GPT_Papers_Presentation.html) | 2026-04-27 |
-| [S04](./04_BPE_Temperature_Top_K_Top_P/) | M01 Part 1 | BPE Tokenization & Sampling Parameters | BPE from scratch · tiktoken · temperature/top-K/top-P visualised with code | 2026-05-04 |
-| [S05](./05_Local_LLMs_and_API_Providers/) | M01 Part 2 | Running LLMs Locally & Via API Providers | Call 6 providers with one pattern · Ollama · LM Studio · OpenRouter · map-reduce summarizer | 2026-05-11 |
+| [S02](./02_Transformer_Architecture/) | M00 Part 2 | Transformer Architecture | Encoder-Decoder Transformer from scratch — English → Italian translation | 2026-04-19 |
+| [S03](./03_GPT_Evolution_and_Alignment/) | M00 Part 3 ✅ | GPT Evolution & Alignment | GPT from scratch (PyTorch + TF) · 11 paper summaries · interactive presentation · [▶ Slides](https://nursnaaz.github.io/zero-to-genai-engineer/03_GPT_Evolution_and_Alignment/GPT_Papers_Presentation.html) | 2026-04-27 |
+| [S04](./04_BPE_Temperature_Top_K_Top_P/) | M01 ✅ | BPE Tokenization & Sampling Parameters | BPE from scratch · tiktoken · temperature / top-K / top-P with visualisations | 2026-05-04 |
+| [S05](./05_Local_LLMs_and_API_Providers/) | M02 ✅ | Local LLMs & API Providers | Ollama · LM Studio · OpenRouter · Databricks · map-reduce summarizer · Distill project | 2026-05-11 |
 
 New sessions drop every **Saturday / Sunday**. Watch the repo to get notified.
+
+---
 
 ### Full Curriculum — 21 Modules
 
 The complete zero-to-production GenAI engineer track.
 
-| Module | Topic | Track | Status |
-|---|---|---|---|
-| M00 | How Search Engines Work · Text → Numbers → Transformers → GPT | Foundation | ✅ Complete (S00–S03) |
-| M01 | Modern LLM Fundamentals (Tokenization, Embeddings, API) | Foundation | 🔄 In Progress (S04–S05) |
-| M02 | Local LLMs with Ollama | Foundation | 🔜 |
-| M03 | Prompt Engineering | Core | 🔜 |
-| M04 | Memory & Chatbots | Core | 🔜 |
-| M05 | RAG Basics | Core | 🔜 |
-| M06 | Production RAG (Hybrid Search, Reranking, RAGAS) | Core | 🔜 |
-| M07 | LangChain Agents | Agents | 🔜 |
-| M08 | LangGraph (Stateful Agents) | Agents | 🔜 |
-| M09 | CrewAI (Multi-Agent Teams) | Agents | 🔜 |
-| M10 | MCP (Model Context Protocol) | Agents | 🔜 |
-| M11 | Document Intelligence | Domain | 🔜 |
-| M12 | Code Intelligence | Domain | 🔜 |
-| M13 | Multimodal AI | Domain | 🔜 |
-| M14 | AI Research Assistant | Domain | 🔜 |
-| M15 | FastAPI + Docker Deployment | Production | 🔜 |
-| M16 | LLMOps & Evaluation | Production | 🔜 |
-| M17 | Guardrails & AI Safety | Production | 🔜 |
-| M18 | Fine-Tuning with LoRA/QLoRA | Advanced | 🔜 |
-| M19 | LlamaIndex Knowledge System | Advanced | 🔜 |
-| M20 | Capstone: End-to-End Business AI System | Capstone | 🔜 |
+| Module | Topic | Covered In | Status | What Was Taught |
+|---|---|---|---|---|
+| M00 | Foundations: Search → Text → Transformers → GPT Evolution | S00–S03 | ✅ Complete | TF-IDF · Word2Vec · Self-attention · Encoder-Decoder · GPT-1/2/3 · RLHF · Constitutional AI · DPO |
+| M01 | Modern LLM Internals: Tokenization & Sampling | S04 | ✅ Complete | BPE algorithm from scratch · tiktoken · Temperature · Top-K · Top-P · sampling visualisations |
+| M02 | Local LLMs & API Providers | S05 | ✅ Complete | Ollama (local, free) · LM Studio (GUI) · OpenRouter (100+ models, one key) · Databricks (enterprise) · map-reduce pattern · Distill project |
+| M03 | Prompt Engineering | — | 🔜 Next | Zero-shot · Few-shot · CoT · structured outputs · function calling · failure modes |
+| M04 | Memory & Chatbots | — | 🔜 | Sliding window · summarisation · system prompt design · domain chatbot |
+| M05 | RAG Basics | — | 🔜 | Chunking · embeddings · ChromaDB · retrieval · grounded answers |
+| M06 | Production RAG | — | 🔜 | Hybrid search · BM25 · reranking · HyDE · RAGAS evaluation |
+| M07 | LangChain Agents | — | 🔜 | ReAct loop · tools · AgentExecutor · memory |
+| M08 | LangGraph (Stateful Agents) | — | 🔜 | Nodes · edges · state · supervisor pattern · human-in-the-loop |
+| M09 | CrewAI (Multi-Agent Teams) | — | 🔜 | Agents · tasks · crews · hierarchical process · planning |
+| M10 | MCP (Model Context Protocol) | — | 🔜 | Tools · resources · prompts · FastMCP server · Claude Desktop |
+| M11 | Document Intelligence | — | 🔜 | PDF/Word/Excel parsing · OCR · structured extraction · document Q&A |
+| M12 | Code Intelligence | — | 🔜 | AST analysis · code review pipeline · security scanning · test generation |
+| M13 | Multimodal AI | — | 🔜 | Vision API · CLIP embeddings · visual document parsing · multimodal RAG |
+| M14 | AI Research Assistant | — | 🔜 | Multi-source synthesis · citation tracking · research agent |
+| M15 | FastAPI + Docker Deployment | — | 🔜 | REST API · containerisation · Hugging Face Spaces / Railway deploy |
+| M16 | LLMOps & Evaluation | — | 🔜 | Langfuse tracing · RAGAS · LLM-as-judge · CI/CD eval |
+| M17 | Guardrails & AI Safety | — | 🔜 | Input/output validation · prompt injection defence · content moderation |
+| M18 | Fine-Tuning with LoRA/QLoRA | — | 🔜 | Unsloth · Together AI · PEFT · preference data · DPO fine-tuning |
+| M19 | LlamaIndex Knowledge System | — | 🔜 | Knowledge graphs · query engines · agents · enterprise RAG |
+| M20 | Capstone: End-to-End Business AI | — | 🔜 | Full production system combining M01–M19 |
 
 ---
 
@@ -89,29 +91,32 @@ The complete zero-to-production GenAI engineer track.
 
 | Date | Session | What Shipped |
 |---|---|---|
-| 2026-05-11 | S05 | Running LLMs Locally & Via API Providers — 6 notebooks (multi-provider unified API, map-reduce summarizer, Ollama, OpenRouter, LM Studio, Databricks), 2 demo apps (provider race, map-reduce pipeline) |
-| 2026-05-04 | S04 | BPE Tokenization & Sampling Parameters — 2 notebooks (BPE from scratch + tiktoken, temperature/top-K/top-P with visualisations), 2 interactive Excel workbooks |
-| 2026-04-27 | S03 | GPT Evolution & Alignment — 2 notebooks (PyTorch deep dive on Sherlock Holmes corpus + TF minimal overview), 11 research paper summaries (GPT-1/2/3, BERT, BART, InstructGPT, HH-RLHF, Constitutional AI, RLAIF, DPO, SELF-REFINE), 11 original papers organised into 3 categories, full README reading guide |
-| 2026-04-19 | S02 | Transformer Architecture — PyTorch notebook, slides, original paper, self-attention video, architecture workbook, interactive tutorials |
-| 2026-04-13 | S01 | Text to Numbers — 5 embedding methods (BoW → FastText), movie recommender (FastAPI + React), cosine similarity notebook |
-| 2026-04-06 | S00 | How Search Engines Work — TF-IDF search engine from scratch, 3 PDF slide decks, 2 notebooks |
+| 2026-05-11 | S05 | **Local LLMs & API Providers (M02)** — 6 notebooks (multi-provider unified API, map-reduce summarizer, Ollama local setup, OpenRouter, LM Studio, Databricks endpoint), 2 demo apps (provider race, map-reduce pipeline), Distill open-source project (AI classroom assessment tool: transcript → adaptive quiz + voice interview debrief, FastAPI + React + Whisper) |
+| 2026-05-04 | S04 | **BPE Tokenization & Sampling Parameters (M01)** — 2 notebooks (BPE from scratch + tiktoken cost analysis, temperature/top-K/top-P with softmax math and matplotlib visualisations), 2 interactive Excel workbooks |
+| 2026-04-27 | S03 | **GPT Evolution & Alignment (M00 Part 3)** — 2 coding notebooks (GPT from scratch on Sherlock Holmes corpus — PyTorch deep dive + TF overview), 11 research paper summaries (GPT-1/2/3, BERT, BART, InstructGPT, HH-RLHF, Constitutional AI, RLAIF, DPO, SELF-REFINE), 11 original PDFs, interactive 14-slide visual presentation |
+| 2026-04-19 | S02 | **Transformer Architecture (M00 Part 2)** — PyTorch notebook (Encoder-Decoder from scratch, English→Italian), slides, original Attention paper, self-attention video, interactive tutorials |
+| 2026-04-13 | S01 | **Text to Numbers (M00 Part 1b)** — 5 embedding methods (BoW → FastText), movie recommender (FastAPI + React), cosine similarity notebook |
+| 2026-04-06 | S00 | **How Search Engines Work (M00 Part 1a)** — TF-IDF search engine from scratch, 3 PDF slide decks, 2 notebooks |
 | 2026-04-03 | Prereq | Python for GenAI, Math Intuition, Neural Networks notebooks + cheat sheet |
 
 ---
 
 ## 🏗️ Projects Built in This Course
 
-Real applications built during the course — open source, forkable, and contribution-ready.
+Real applications built during the course — open source, forkable, contribution-ready.
 
-| Project | Module | Description | Stack | Repo |
-|---|---|---|---|---|
-| **Distill** | M02 — Local LLMs | AI classroom assessment tool: paste a transcript → adaptive quiz + Dr. Priya interview debrief | FastAPI · React · LM Studio · Whisper | [→ github.com/nursnaaz/distill](https://github.com/nursnaaz/distill) |
+| Project | Session | Description | Stack |
+|---|---|---|---|
+| **Distill** | S05 — M02 | AI classroom assessment tool: paste a meeting/lecture transcript → structured session summary → adaptive MCQ quiz + "Teach It Back" voice interview → personalised debrief showing exactly where each student is strong and where they need to improve | FastAPI · React · Ollama / LM Studio · OpenAI Whisper · Jinja2 prompts |
+| **Multi-Provider Race** | S05 — M02 | Send the same prompt to 3 LLM providers simultaneously and compare speed + quality | Ollama · OpenRouter · Databricks |
+| **Map-Reduce Summarizer** | S05 — M02 | Summarize documents longer than the model's context window using the map-reduce pattern | OpenRouter · LangChain |
+| **Holmes GPT** | S03 — M00 | GPT trained from scratch on the Sherlock Holmes corpus — interactive generation UI | PyTorch · Streamlit |
 
 ### ⭐ Contribute to Distill
 
-Distill is a live open-source project. Contributing to it is part of the course.
+Distill is a live open-source project built in this course. Contributing to it is part of the curriculum.
 
-**[→ Read the Contribution Guide](https://github.com/nursnaaz/distill/blob/main/CONTRIBUTING.md)**
+**[→ Read the Contribution Guide](./05_Local_LLMs_and_API_Providers/distill/CONTRIBUTING.md)**
 
 The guide walks you through forking, branching, opening a PR, and responding to review — the exact workflow used at every AI company. Mohamed reviews every PR personally.
 
@@ -119,7 +124,7 @@ The guide walks you through forking, branching, opening a PR, and responding to 
 
 ## 🎮 Interactive Tutorials
 
-Hands-on tutorials you can run in your browser — no setup, no install. Built specifically for this course.
+Hands-on tutorials you can run in your browser — no setup, no install.
 
 | Tutorial | Session | Level | Time |
 |---|---|---|---|
@@ -129,16 +134,13 @@ Hands-on tutorials you can run in your browser — no setup, no install. Built s
 | [Positional Encoding](https://nursnaaz.github.io/tutorial/positional-encoding) | S02 | Beginner | 35 min |
 | [Multi-Head Attention](https://nursnaaz.github.io/tutorial/multi-head-attention) | S02 | Intermediate | 60 min |
 
-All tutorials are interactive — run the calculations yourself, step by step. Use them alongside the session notebooks to check your understanding.
-
 👉 **Full tutorial library:** [nursnaaz.github.io](https://nursnaaz.github.io)
 
 ---
 
 ## 🚀 Start Here — Pre-work (Beginners)
 
-**New to Python, ML, or AI?** Complete the pre-work first.
-It takes ~3 hours and gives you everything you need to follow S00 onwards.
+**New to Python, ML, or AI?** Complete the pre-work first — takes ~3 hours.
 
 📁 **[→ Go to Pre-work](./prereq/)**
 
@@ -154,17 +156,18 @@ After the notebooks, read the **[Cheat Sheet](./prereq/cheatsheet.md)** — keep
 
 ## 🛠️ Tech Stack
 
-| Purpose | Tool |
-|---|---|
-| Cloud LLMs | Gemini API (free tier) |
-| Local LLMs | Ollama |
-| Agents | LangChain · LangGraph · CrewAI |
-| RAG | ChromaDB · Sentence Transformers |
-| Production | FastAPI · Docker |
-| Observability | Langfuse |
-| Fine-tuning | Unsloth · Together AI |
-
----
+| Purpose | Tool | First Used |
+|---|---|---|
+| Cloud LLMs | Gemini API (free tier) | S04 |
+| Multi-model access | OpenRouter | S05 |
+| Local LLMs | Ollama · LM Studio | S05 |
+| Enterprise LLMs | Databricks | S05 |
+| Tokenization | tiktoken | S04 |
+| Agents | LangChain · LangGraph · CrewAI | M07–M09 |
+| RAG | ChromaDB · Sentence Transformers | M05–M06 |
+| Production | FastAPI · Docker | M15 |
+| Observability | Langfuse | M16 |
+| Fine-tuning | Unsloth · Together AI | M18 |
 
 ---
 
@@ -175,4 +178,3 @@ After the notebooks, read the **[Cheat Sheet](./prereq/cheatsheet.md)** — keep
 ⭐ **Star this repo** if you find it useful — it helps others discover it.
 
 </div>
-
