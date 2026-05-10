@@ -40,9 +40,9 @@ That chain is what makes this a complete system — not a collection of tutorial
 > **Two tracks, one goal.**
 > The **public sessions** in this repo (S00 onwards) are a free, open foundation track — released every weekend. The **21-module program** below is the full curriculum this repo is building towards.
 
-### Available Now — 6 Sessions · M00 Complete ✅ · M01 Complete ✅ · M02 In Progress 🔄
+### Available Now — 8 Sessions · M00 Complete ✅ · M01 Complete ✅ · M02 Complete ✅
 
-> **M00 — Foundation** is complete (S00–S03). **M01 — Modern LLM Fundamentals** is complete (S04). **M02 — Local LLMs & API Providers** is complete (S05).
+> **M00 — Foundation** is complete (S00–S03). **M01 — Modern LLM Fundamentals** is complete (S04a–S04b). **M02 — Local LLMs & API Providers** is complete (S05a–S05b).
 
 | Session | Module | Topic | What You Build | Released |
 |---|---|---|---|---|
@@ -50,8 +50,10 @@ That chain is what makes this a complete system — not a collection of tutorial
 | [S01](./01_Text_to_Numbers/) | M00 Part 1b | Text to Numbers | Movie recommender with 5 embedding methods | 2026-04-13 |
 | [S02](./02_Transformer_Architecture/) | M00 Part 2 | Transformer Architecture | Encoder-Decoder Transformer from scratch — English → Italian translation | 2026-04-19 |
 | [S03](./03_GPT_Evolution_and_Alignment/) | M00 Part 3 ✅ | GPT Evolution & Alignment | GPT from scratch (PyTorch + TF) · 11 paper summaries · interactive presentation · [▶ Slides](https://nursnaaz.github.io/zero-to-genai-engineer/03_GPT_Evolution_and_Alignment/GPT_Papers_Presentation.html) | 2026-04-27 |
-| [S04](./04_BPE_Temperature_Top_K_Top_P/) | M01 ✅ | BPE Tokenization & Sampling Parameters | BPE from scratch · tiktoken · temperature / top-K / top-P with visualisations | 2026-05-04 |
-| [S05](./05_Local_LLMs_and_API_Providers/) | M02 ✅ | Local LLMs & API Providers | Ollama · LM Studio · OpenRouter · Databricks · map-reduce summarizer · Distill project | 2026-05-11 |
+| [S04a](./04_BPE_Temperature_Top_K_Top_P/) | M01 Day 1 | BPE Tokenization | BPE algorithm from scratch · tiktoken · token cost analysis | 2026-05-02 |
+| [S04b](./04_BPE_Temperature_Top_K_Top_P/) | M01 Day 2 ✅ | Sampling Parameters | Temperature · top-K · top-P with softmax math and matplotlib visualisations | 2026-05-03 |
+| [S05a](./05_Local_LLMs_and_API_Providers/) | M02 Day 1 | Local LLMs & API Providers | Ollama · LM Studio · OpenRouter · Databricks · multi-provider unified API · map-reduce summarizer | 2026-05-09 |
+| [S05b](./05_Local_LLMs_and_API_Providers/) | M02 Day 2 ✅ | Distill Project | AI classroom assessment tool: transcript → adaptive quiz + voice interview debrief | 2026-05-10 |
 
 New sessions drop every **Saturday / Sunday**. Watch the repo to get notified.
 
@@ -91,8 +93,10 @@ The complete zero-to-production GenAI engineer track.
 
 | Date | Session | What Shipped |
 |---|---|---|
-| 2026-05-11 | S05 | **Local LLMs & API Providers (M02)** — 6 notebooks (multi-provider unified API, map-reduce summarizer, Ollama local setup, OpenRouter, LM Studio, Databricks endpoint), 2 demo apps (provider race, map-reduce pipeline), Distill open-source project (AI classroom assessment tool: transcript → adaptive quiz + voice interview debrief, FastAPI + React + Whisper) |
-| 2026-05-04 | S04 | **BPE Tokenization & Sampling Parameters (M01)** — 2 notebooks (BPE from scratch + tiktoken cost analysis, temperature/top-K/top-P with softmax math and matplotlib visualisations), 2 interactive Excel workbooks |
+| 2026-05-10 | S05b | **Distill Project (M02 Day 2)** — open-source AI classroom assessment tool: paste meeting/lecture transcript → structured session summary → adaptive MCQ quiz + "Teach It Back" voice interview → personalised debrief; FastAPI + React + Ollama / LM Studio + OpenAI Whisper + Jinja2 prompts |
+| 2026-05-09 | S05a | **Local LLMs & API Providers (M02 Day 1)** — 6 notebooks (multi-provider unified API, map-reduce summarizer, Ollama local setup, OpenRouter, LM Studio, Databricks endpoint), 2 demo apps (provider race, map-reduce pipeline) |
+| 2026-05-03 | S04b | **Sampling Parameters (M01 Day 2)** — temperature / top-K / top-P with softmax math and matplotlib visualisations, interactive Excel workbook |
+| 2026-05-02 | S04a | **BPE Tokenization (M01 Day 1)** — BPE algorithm from scratch, tiktoken cost analysis, interactive Excel workbook |
 | 2026-04-27 | S03 | **GPT Evolution & Alignment (M00 Part 3)** — 2 coding notebooks (GPT from scratch on Sherlock Holmes corpus — PyTorch deep dive + TF overview), 11 research paper summaries (GPT-1/2/3, BERT, BART, InstructGPT, HH-RLHF, Constitutional AI, RLAIF, DPO, SELF-REFINE), 11 original PDFs, interactive 14-slide visual presentation |
 | 2026-04-19 | S02 | **Transformer Architecture (M00 Part 2)** — PyTorch notebook (Encoder-Decoder from scratch, English→Italian), slides, original Attention paper, self-attention video, interactive tutorials |
 | 2026-04-13 | S01 | **Text to Numbers (M00 Part 1b)** — 5 embedding methods (BoW → FastText), movie recommender (FastAPI + React), cosine similarity notebook |
